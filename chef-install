@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+echo "Download chef DK"
+#wget https://github.com/git/git/archive/v1.9.2.zip -O git.zip
+wget https://packages.chef.io/stable/ubuntu/12.04/chefdk_0.14.25-1_amd64.deb -O chefdk_0.14.25-1_amd64.deb
+echo "Downloaded" 
+echo "Intalling chef DK"
+dpkg -i chefdk_0.14.25-1_amd64.deb
+echo "chef DK installed successfully"
+mkdir /home/krishmeeh/.chef
+cd /home/krishmeeh/.chef
+echo "cookbook_path ['/home/krishmeeh/cookbooks']">knife.rb
+mkdir /home/krishmeeh/cookbooks
+cd /home/krishmeeh/cookbooks
+chef generate cookbook my_cookbook
